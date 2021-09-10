@@ -1,0 +1,28 @@
+{
+    "name": "fscode/fscode",
+    "type": "project",
+    "description": "The fscode project.",
+    "version": "1.0.0",
+    "keywords": ["fscode", "test"],
+    "readme": "/Readme.md",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mirali Ayyubzade",
+            "email": "eyyubzademireli@gmail.com",
+            "homepage": "https://www.facebook.com/ali.ayyubzadeh",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "izniburak/router": "^2.3",
+        "jenssegers/blade": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "./core",
+            "Plugins\\": "./plugins"
+        }
+    }
+}
