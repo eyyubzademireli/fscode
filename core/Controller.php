@@ -2,30 +2,12 @@
 
 namespace Core;
 
-use Plugins\SendEmail;
-use Plugins\Whatsapp;
-use Plugins\Telegram;
+use App\Kernel;
 
 class Controller extends Bootstrap
 {
-    public $plugin;
-
-    public function setPlugin($plugin) {
-        switch ($plugin) {
-            case 'email':
-                $this->plugin = new SendEmail();
-                break;
-                
-            case 'whatsapp':
-                $this->plugin = new Whatsapp();
-                break;
-
-            case 'telegram':
-                $this->plugin = new Telegram();
-                break;
-        }
-    }
-
+    use Kernel;
+    
     public function view($view, $data = [])
     {
         return $this->view->show($view, $data);
