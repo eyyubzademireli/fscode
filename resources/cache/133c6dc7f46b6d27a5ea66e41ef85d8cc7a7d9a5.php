@@ -18,9 +18,9 @@
             <div class="px-8 flex justify-center">
                 <select autofocus onchange="getPluginForm()" class="w-1/2  px-4 outline-none cursor-pointer border-gray-600 border-2 rounded h-12 text-xl text-gray-600 font-semibold focus:border-blue-600 transition-all hover:border-blue-600" name="plugin" id="plugin">
                     <option value="none">Select the plugin</option>
-                    <option value="email">Email</option>
-                    <option value="whatsapp">Whatsapp</option>
-                    <option value="telegram">Telegram</option>
+                    <option value="SendEmail">Email</option>
+                    <option value="Whatsapp">Whatsapp</option>
+                    <option value="Telegram">Telegram</option>
                 </select>
             </div>
             <div id="formhere"></div>
@@ -52,10 +52,10 @@
             e.preventDefault();
             const data = $('#form').serializeJSON();
             axios.post('sendmessage', {
-                data: data,
-                plugin: plugin.value
+                data: data
             })
             .then(function(res) {
+                console.log(res);
                 let result = document.getElementById('result');
                 result.innerHTML = '';
                 result.insertAdjacentHTML('beforeend', "<p class='w-full text-2xl text-center text-gray-700 font-semibold my-8'>Serverdən gələn cavab:</p>");
@@ -63,7 +63,6 @@
                     let div = "<div class='py-2 flex justify-between'><span class='font-semibold'>"+property+":</span><span class='underline'>"+res.data[property]+"</div>";
                     result.insertAdjacentHTML('beforeend', div);
                 }
-
             })
             .catch(function(err) {
                 console.log(err);

@@ -18,8 +18,8 @@ class Controller extends Bootstrap
         return $this->plugin->pluginData;
     }
 
-    public function sendResponse($data, $plugin) {
-        $this->setPlugin($plugin);
+    public function sendResponse($data) {
+        $this->setPlugin($data->plugin);
         return $this->plugin->sendMessage($data);
     }
 }

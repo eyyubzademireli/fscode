@@ -27,9 +27,8 @@ class HomeController extends Controller
 
     public function sendMessage(Request $req, Response $res) {
         $data = $this->getData($req);
-        $plugin = $data->plugin;
         $data = $data->data;
-        return $res->setContent(json_encode($this->sendResponse($data, $plugin)));
+        return $res->setContent(json_encode($this->sendResponse($data)));
     }
 
 
